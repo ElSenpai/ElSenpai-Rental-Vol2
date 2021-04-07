@@ -1,0 +1,94 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#credit">
+   Payment
+  </button>
+  
+<!-- Modal -->
+<div class="modal fade" id="credit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #adb5bd;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Credit Card</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <select  class="form-select " aria-label="Default select example">
+                    <option selected>My Credit Cards</option>
+                    <option *ngIf="card" value="1">{{card.cardNumber}}</option>               
+                  </select>
+                <form [formGroup]="creditAddForm"  >
+                    
+                    <label for="brandName">Customer</label>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <input type="number" formControlName="customerId" [value]="customerId"  readonly pInputText>
+
+                        </span>
+                    </div> 
+                    <label for="brandName">Card Number</label>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <input type="text" formControlName="cardNumber" [value]="card?.cardNumber" id="cardNumber" pInputText>
+
+                        </span>
+                    </div>
+                    <label for="brandName">CVC</label>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <input type="password" formControlName="cardPassword" [value]="card?.cardPassword" id="cardPassword" pInputText>
+
+                        </span>
+                    </div>
+                    <label for="brandName">Price</label>
+                    <div class="p-field p-col-12 p-md-4">
+                        <span class="p-float-label">
+                            <input type="number" formControlName="money" [value]="money"  id="money" readonly pInputText>
+
+                        </span>
+                    </div>
+    
+
+    </form>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" [(ngModel)] = "isChecked" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Kartınız kaydedilsin mi ?
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="add()" class="btn btn-dark" data-bs-dismiss="modal">Pay</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Back</button>
+          
+        <!-- <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#CardSave">
+   Pay
+      </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" style="background-color: #f7f6f5;" id="CardSave" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content" style="background-color: #d4d1a5;">
+        <div class="modal-header">
+          
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Kayıtlı kartlarıma eklensin mi ?
+        </div>
+       
+        <div class="modal-footer">
+           <button type="button" class="btn btn-danger" (click)="pay()" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-success" (click)="add()" data-bs-dismiss="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

@@ -1,0 +1,37 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#brandadd" style="margin-right: 10px;">
+  Add Brand
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="brandadd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="background-color: #adb5bd;"> 
+        <div class="modal-header" >
+          <h5 class="modal-title" id="exampleModalLabel">Brand Add</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+          <form [formGroup]="brandAddForm">
+
+ 
+
+            <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                     <label for="brandName">Name :</label><input type="text"  formControlName="brandName" id="brandName" pInputText>
+                   
+                </span>
+            </div>
+
+            
+    
+
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>

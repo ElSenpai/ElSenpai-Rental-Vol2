@@ -1,0 +1,52 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#caradd" style="margin-right: 10px;">
+  Add
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="caradd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Car</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body ">
+         <form [formGroup]="carAddForm"> 
+        <label for="brandId">Brand Id</label>
+        <div class="p-field p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input type="number" formControlName="brandId"  pInputText>
+          </span>
+        </div>
+        <label for="colordId"> Color Id</label>
+        <div class="p-field p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input type="number" formControlName="colorId"  pInputText>
+          </span>
+        </div> <label for="modelYear">Year</label>
+        <div class="p-field p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input type="number" formControlName="modelYear"  pInputText>
+          </span>
+        </div>
+        <label for="carName">Name</label>
+        <div class="p-field p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input type="text" formControlName="carName" pInputText>
+          </span>
+        </div> <label for="dailyPrice">Price</label>
+        <div class="p-field p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input type="number" formControlName="dailyPrice"  pInputText>
+          </span>
+        </div>
+     </form> 
+     </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" data-bs-dismiss="modal" (click)="add()" class="btn btn-dark">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

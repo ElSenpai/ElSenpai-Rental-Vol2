@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/123.png" height="60"  class="p-mr-2" >
+        </a>
+        
+        <div class="dropdown" >
+              <button *ngIf="!authCheck()" class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Kullanıcı Girişi
+            </button> 
+           <button *ngIf="authCheck() && claims=='member' && name" class="btn btn-danger bi bi-person dropdown-toggle" id="admin" data-bs-toggle="dropdown" aria-expanded="false"  style="border-radius: 15px;margin-left: 5px;" type="button" > {{ name}} </button> 
+             <button *ngIf="authCheck() && claims=='admin' && name " class="btn btn-danger bi bi-star-fill dropdown-toggle" id="senpai" data-bs-toggle="dropdown" aria-expanded="false"  style="border-radius: 15px;margin-left: 5px;" type="button" > {{ name}} </button> 
+            <ul  *ngIf="!authCheck()" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="bi  bi-box-arrow-in-right dropdown-item " routerLink="/login" > Login</a></li>
+              <li><a class="bi bi-person-plus dropdown-item" routerLink="/register"> Register</a></li>          
+            </ul> 
+            <ul *ngIf="authCheck() && claims=='admin'"  class="dropdown-menu" aria-labelledby="senpai">
+              <li><a class="bi  bi-bookmark-check dropdown-item " routerLink="/admin" > Admin Panel</a></li>
+              <li><a class="bi bi-box-arrow-right dropdown-item"(click)="logOut()" routerLink="/login"> Logout</a></li>                    
+            </ul> 
+            <ul *ngIf="authCheck() && claims=='member'" class="dropdown-menu" aria-labelledby="user">    
+              <li><a class="bi bi-person-circle dropdown-item" routerLink="/user"> User Panel</a></li>   
+              <li><a class="bi bi-box-arrow-right dropdown-item" (click)="logOut()" routerLink="/login"> Logout</a></li>                    
+            </ul> 
+          </div> 
+    </div>
+  </nav>
+  
+ 

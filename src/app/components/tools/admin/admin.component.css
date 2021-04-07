@@ -1,0 +1,103 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.card-background-image-hover .card-body {
+    background: rgba(255, 255, 255, 0.9);
+    margin: 16px;
+    margin: 1rem;
+    padding: 16px;
+    padding: 1rem;
+}
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.text-5 {
+    font-size: 1.50em !important;
+}
+.font-weight-bold {
+    font-weight: 700!important;
+}
+.mb-2, .my-2 {
+    margin-bottom: .5rem!important;
+}
+.mt-2, .my-2 {
+    margin-top: .5rem!important;
+}
+.card-title {
+    margin-bottom: .75rem;
+}
+h4 {
+    font-size: 1.4em;
+    font-weight: 600;
+    line-height: 27px;
+    margin: 0 0 14px 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #212529;
+    font-weight: 200;
+    letter-spacing: -.05em;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+.h4, h4 {
+    font-size: 1.5rem;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+p {
+    color: #777;
+    line-height: 26px;
+    margin: 0 0 20px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.btn-dark {
+    background-color: #212529;
+    border-color: #212529 #212529 #0a0c0d;
+    color: #FFF;
+}
+.btn-modern {
+    text-transform: uppercase;
+    font-size: .8em;
+    padding: 12.8px 24px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+body {
+    background-color: #FFF;
+    color: #777;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    margin: 0;
+}

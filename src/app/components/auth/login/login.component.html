@@ -1,0 +1,29 @@
+
+<div class="container py-4" style="margin-top: 50px; ">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 mb-5 mb-lg-0" style="padding: 40px 60px 60px 60px; border: 1px solid #adb5bd; border-radius:35px; background-color:#adb5bd">
+            <h2 class="font-weight-bold text-4 mb-4 text-uppercase " style="text-align: center;">Login</h2>
+            <form [formGroup]="loginForm" action="/" id="frmSignIn" method="post" class="needs-validation">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3">Email address </label>
+                        <input type="text" value="" formControlName="email" class="form-control form-control-lg text-4" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3">Password </label>
+                        <input type="password" formControlName="password" value="" class="form-control form-control-lg text-4" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <button type="submit"
+                            class="btn btn-dark btn-modern btn-block text-uppercase rounded-3 font-weight-bold text-3 py-3"
+                            data-loading-text="Loading..." (click)="login()" routerLink="/main" >Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

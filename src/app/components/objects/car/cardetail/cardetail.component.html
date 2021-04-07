@@ -1,0 +1,18 @@
+<div class="row" style="margin-top: 50px;">
+    <div class="col-md-6">
+        <app-carimage></app-carimage>
+    </div>
+    <div class="col-md-6" >
+        <app-car-update  *ngIf="claims=='admin'" ></app-car-update> 
+        <ul *ngIf="cardto" class="list-group " >
+            <li class="list-group-item">Brand : {{cardto.brandName }}</li>
+            <li class="list-group-item">Name : {{ cardto.brandModel }}</li>
+            <li class="list-group-item">Color : {{ cardto.colorName }}</li>
+            <li class="list-group-item">Daily Price: {{ cardto.dailyPrice }} ₺ </li>
+            <li class="list-group-item">Findeks: {{ cardto.minFindeks }}</li>
+        </ul>
+        <button *ngIf="cardto" style="margin-top: 10px; background-color: rgb(134, 183, 192);" routerLink="/rental/{{cardto.carId}}" class="btn" >Kirala</button> 
+        
+    </div>
+    
+</div>

@@ -1,0 +1,30 @@
+<div style="margin-top: 50px;border-radius: 5px;">  
+     <ul></ul>     
+     <input class="form-control"  type="text" [(ngModel)]="filterText"  id="filterText" placeholder="Search" style="background-color: #a9caeb; border-radius: 15px;">   
+     <ul></ul>
+<table class="table table-striped " style="background-color: #adb5bd;  border-radius: 5px;"  >
+     <thead>     
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Model</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Color</th>
+        <th scope="col">Year</th>
+        <th scope="col">Price</th>
+        <th scope="col"></th>
+       
+      </tr>
+    </thead>
+    <tbody *ngFor="let car of cardto | filterCar:filterText">
+      <tr>
+        <th >{{car.carId}}</th>
+        <td >{{car.brandModel}}</td>
+        <td >{{car.brandName}}</td>
+        <td >{{car.colorName}}</td>
+        <td >{{car.modelYear}}</td>
+        <td>{{car.dailyPrice}} ₺</td>
+        <td> <button class="btn" routerLink="/details/{{car.carId}}" style="background-color: #a9caeb;border-radius: 25px;">detail</button></td>       
+      </tr>
+    </tbody>
+  </table></div>
+

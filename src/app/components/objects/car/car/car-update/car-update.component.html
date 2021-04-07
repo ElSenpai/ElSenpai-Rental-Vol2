@@ -1,0 +1,72 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#carupdate">
+  Update
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="carupdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content " style="background-color: #adb5bd;">
+        <div class="modal-header ">
+          <h5 class="modal-title" id="exampleModalLabel">Car Update</h5>
+          <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ">
+          <form [formGroup]="carUpdateForm">
+            <label for="id">Car Id</label><div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="number" formControlName="id" value="id" readonly >
+                    
+                </span>
+            </div>
+
+
+              <label for="brandId">Brand Id</label><div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="number" formControlName="brandId"  pInputText>
+                  
+                </span>
+            </div>
+
+              <label for="colordId">Color Id</label> <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="number"  formControlName="colorId"  pInputText>
+                 
+                </span>
+            </div>
+            <label for="modelYear">Year</label> <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="number" formControlName="modelYear"  pInputText>
+                   
+                </span>
+            </div>
+
+             <label for="carName">Name</label> <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="text" formControlName="carName"  pInputText>
+                  
+                </span>
+            </div>
+               <label for="dailyPrice">Price</label> <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="number" formControlName="dailyPrice"  pInputText>
+                
+                </span>
+            </div>
+          
+          <label for="dailyPrice">Findeks</label> <div class="p-field p-col-12 p-md-4">
+           <span class="p-float-label">
+               <input type="number" formControlName="minFindeks"  pInputText>
+           
+           </span>
+       </div>
+
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Back</button>
+          <button type="button"  (click)="update()" class="btn btn-dark" data-bs-dismiss="modal">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

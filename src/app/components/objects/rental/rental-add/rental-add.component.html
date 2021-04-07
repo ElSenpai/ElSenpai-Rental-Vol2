@@ -1,0 +1,48 @@
+<div class="container py-4" style="margin-top: 50px; ">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5 mb-5 mb-lg-0" style="padding: 40px 60px 60px 60px; border: 1px solid #adb5bd; border-radius:0px; background-color:#adb5bd">
+            <h2 class="font-weight-bold text-4 mb-4 text-uppercase " style="text-align: center;">Rent</h2>
+            <form [formGroup]="rentalAddForm"    action="/" id="frmSignIn" method="post" class="needs-validation">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3">Car </label>
+                        <input type="number" [value]="carId" formControlName="carId" class="form-control form-control-lg text-4" readonly >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3">Customer </label>
+                        <input type="number"[value]="customerId" formControlName="customerId" class="form-control form-control-lg text-4" readonly >
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3">Rent </label>
+                        <input type="datetime-local" formControlName="rentDate" value="" class="form-control form-control-lg text-4" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3">Return </label>
+                        <input type="datetime-local" formControlName="returnDate" value="" class="form-control form-control-lg text-4" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label class="text-color-dark text-3"> User Findeks </label>
+                        <input *ngIf="customer" type="number" placeholder="{{customer.findeks}}"  class="form-control form-control-lg text-4" readonly >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col" style="margin-top: 5px;">
+                        <button type="submit"
+                            class="btn btn-warning  btn-modern btn-block " style="margin-right: 5px;"
+                            data-loading-text="Loading..." (click)="add()" name="isCheck"  >Rent Request</button>
+                           <app-creditcard *ngIf="isCheck" [rent]="rental" ></app-creditcard>
+                    </div> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

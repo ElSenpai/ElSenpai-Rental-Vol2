@@ -1,0 +1,42 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#colorupdate">
+  Update Color
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="colorupdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #adb5bd;">
+          <h5 class="modal-title" id="exampleModalLabel">Color Update</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="colorUpdateForm">
+
+            <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="number"  formControlName="id"  pInputText>
+                    <label for="id">Id</label>
+                </span>
+            </div>
+
+            <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <input type="text"  formControlName="colorName"  pInputText>
+                    <label for="colorName">Name</label>
+                </span>
+            </div>
+
+            
+    
+
+    </form>
+        </div>
+        <div class="modal-footer" style="background-color: #adb5bd;">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

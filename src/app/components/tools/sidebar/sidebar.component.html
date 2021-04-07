@@ -1,0 +1,23 @@
+<div class="d-flex flex-column p-3 text-white bg-dark" style="width: 280px;margin-top: 50px; border-radius: 5px;">
+    <a  class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi bi-patch-exclamation" width="40" height="32"></svg>
+      <span class="fs-4"></span>
+    </a>
+    
+    <select  [ngModel]="brands" (ngModelChange)="setCurrentBrand($event)" class="form-select " aria-label="Default select example"  style="background-color: #accef0; border-radius: 10px;float: right;margin-top: 5px;">
+      
+      <option  [value]="brand.id" class="form-select selected"  *ngFor="let brand of brands"  >{{brand.brandName}} </option>
+      
+    </select>
+    
+    <select  [ngModel]="colors" (ngModelChange)="setCurrentColor($event)" class="form-select " aria-label="Default select example"  style="background-color: #accef0; border-radius: 10px;float: right;margin-top: 5px;">
+      
+      <option  [value]="color.id" class="form-select selected"  *ngFor="let color of colors"  >{{color.colorName}} </option>
+      
+    </select>
+    
+     <button  class="btn btn-warning "  (click)="someFilter()" style=" border-radius: 15px; margin-top: 8px;">Filter</button> 
+     <button class="btn  " routerLink="/main" style=" border-radius: 15px; margin-top: 8px;background-color:#4aa87c ;">Clear</button>
+  </div>
+
+  
