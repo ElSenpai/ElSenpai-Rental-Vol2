@@ -13,7 +13,8 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class SidebarComponent implements OnInit {
   brands:Brand[]=[]
- 
+  filterBrandText="";
+  filterColorText="";
   colors:Color[]=[]
   currentBrand:Brand
   currentColor:Color

@@ -11,7 +11,7 @@
         <th scope="col">Color</th>
         <th scope="col">Year</th>
         <th scope="col">Price</th>
-        <th scope="col"></th>
+        <th scope="col"><a href="#" style="float: right;border: 5px;" id="ceren" class="btn btn-danger bi bi-arrow-left"> </a> </th>
        
       </tr>
     </thead>
@@ -23,7 +23,7 @@
         <td >{{car.colorName}}</td>
         <td >{{car.modelYear}}</td>
         <td>{{car.dailyPrice}} ₺</td>
-        <td> <button class="btn" routerLink="/details/{{car.carId}}" style="background-color: #a9caeb;border-radius: 25px;">detail</button></td>       
+        <td> <button  class="btn" routerLink="/details/{{car.carId}}" style="background-color: #a9caeb;border-radius: 25px;">detail</button></td>       
       </tr>
     </tbody>
   </table></div>

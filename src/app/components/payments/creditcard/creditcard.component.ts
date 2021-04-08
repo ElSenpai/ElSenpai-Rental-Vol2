@@ -9,6 +9,8 @@ import { Rental } from 'src/app/models/rental';
 import { CarService } from 'src/app/services/car.service';
 import { CreditService } from 'src/app/services/credit.service';
 import { CustomerService } from 'src/app/services/customer.service';
+import { DecodeService } from 'src/app/services/decode.service';
+
 import { LocalService } from 'src/app/services/local.service';
 import { RentalService } from 'src/app/services/rental.service';
 
@@ -32,9 +34,13 @@ export class CreditcardComponent implements OnInit {
   constructor(private activted: ActivatedRoute,
     private creditService: CreditService,
     private carService: CarService,
-    private formBuilder: FormBuilder, private toastr: ToastrService, private local: LocalService,
+    private formBuilder: FormBuilder, 
+    private toastr: ToastrService, 
+    private local: LocalService,
     private customerService: CustomerService,
-    private rentalService: RentalService) { }
+    private rentalService: RentalService,
+    private decodeService:DecodeService
+    ) { }
 
   ngOnInit(): void {
     this.activted.params.subscribe(params => {
@@ -124,15 +130,11 @@ export class CreditcardComponent implements OnInit {
 
 
   decode() {
-    let token = this.local.get("token")
-    let decoded = jwtDecode(token)
-    let userId = Object.values(decoded)[0]
-    //let email=Object.values(decoded)[1]
-    //let name=Object.values(decoded)[2]
-    //let claims=Object.values(decoded)[3]
-    //this.claims=claims
-    //this.name=name
-    this.userId = userId
+    this.userId=this.decodeService.getUserId();
+    // let token = this.local.get("token")
+    // let decoded = jwtDecode(token)
+    // let userId = Object.values(decoded)[0]
+    // this.userId = userId
 
   }
 

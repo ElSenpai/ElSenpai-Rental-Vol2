@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import jwtDecode, { JwtDecodeOptions } from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
-import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { DecodeService } from 'src/app/services/decode.service';
 import { LocalService } from 'src/app/services/local.service';
 
 
@@ -14,7 +13,10 @@ import { LocalService } from 'src/app/services/local.service';
 export class NavbarComponent implements OnInit {
  claims:string
  name:string
-  constructor(private authService:AuthService,private local:LocalService,private toastr:ToastrService) { }
+  constructor(private authService:AuthService,
+    private local:LocalService,
+    private toastr:ToastrService,
+    private decodeService:DecodeService) { }
 
   ngOnInit(): void {
     this.decode()
@@ -25,22 +27,16 @@ export class NavbarComponent implements OnInit {
   
   }
 
-  decode(){
-    let token = this.local.get("token")
-    let decoded=jwtDecode(token)
-    //let userId=Object.values(decoded)[0]
-    //let email=Object.values(decoded)[1]
-    let name=Object.values(decoded)[2]
-    let claims=Object.values(decoded)[3]
-    this.claims=claims
-    this.name=name
+  
+  decode() {
+    this.claims=this.decodeService.getClaim();
+    this.name=this.decodeService.getName();
     
   }
 
   logOut(){
     this.local.remove("token")
-    this.toastr.info("you Logout from Rental","Have a good day")
-   
+    this.toastr.info("you Logout from Rental","Have a good day")   
   }
   
 

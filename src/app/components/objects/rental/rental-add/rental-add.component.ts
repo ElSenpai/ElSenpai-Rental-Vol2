@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
 import { CustomerService } from 'src/app/services/customer.service';
+import { DecodeService } from 'src/app/services/decode.service';
 import { LocalService } from 'src/app/services/local.service';
 import { RentalService } from 'src/app/services/rental.service';
 
@@ -28,8 +29,9 @@ export class RentalAddComponent implements OnInit {
     private formBuilder:FormBuilder,
     private rentalService:RentalService,
     private customerService:CustomerService,
-    private local:LocalService,
-    private activated:ActivatedRoute) { }
+    
+    private activated:ActivatedRoute,
+    private decodeService:DecodeService) { }
 
   ngOnInit(): void {
     this.activated.params.subscribe(params=>{
@@ -43,15 +45,8 @@ export class RentalAddComponent implements OnInit {
     this.createRentalAddForm()
   }
 decode(){
-    let token = this.local.get("token")
-    let decoded=jwtDecode(token)
-    let userId=Object.values(decoded)[0]
-    //let email=Object.values(decoded)[1]
-    //let name=Object.values(decoded)[2]
-    //let claims=Object.values(decoded)[3]
-    //this.claims=claims
-    //this.name=name
-    this.userId=userId
+  this.userId=this.decodeService.getUserId();
+   
     
   }
 

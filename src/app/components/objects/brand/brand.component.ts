@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
+
 import { BrandService } from 'src/app/services/brand.service';
+import { DecodeService } from 'src/app/services/decode.service';
 
 @Component({
   selector: 'app-brand',
@@ -9,24 +11,15 @@ import { BrandService } from 'src/app/services/brand.service';
   styleUrls: ['./brand.component.css']
 })
 export class BrandComponent implements OnInit {
-brands:Brand[]=[]
-currentBrand:Brand
-  constructor(private brandService:BrandService,private toastr:ToastrService) { }
+
+  constructor(private toastr:ToastrService,private decodeService:DecodeService) { }
 
   ngOnInit(): void {
-    this.getBrands()
+    
+    
   }
 
-  getBrands(){
-    this.brandService.getBrands().subscribe(res=>{
-      this.brands=res.data
-    })
-  }
-  setCurrentBrand(brand:Brand){
-    this.currentBrand=brand;
-    console.log(this.currentBrand)
-   }
-   
+  
 
 
 }

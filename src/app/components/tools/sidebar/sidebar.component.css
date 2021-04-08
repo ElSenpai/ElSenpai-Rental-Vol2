@@ -1,1 +1,8 @@
-@import "~bootstrap-icons/font/bootstrap-icons.css";
+#filterBrandText:focus{
+    box-shadow: none;
+    border-color:none;
+}
+#filterColorText:focus{
+    box-shadow: none;
+    border-color:none;
+}

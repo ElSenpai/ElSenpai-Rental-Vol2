@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import jwtDecode from 'jwt-decode';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/auth.service';
+import { DecodeService } from 'src/app/services/decode.service';
+
 import { LocalService } from 'src/app/services/local.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,7 +20,9 @@ export class UserComponent implements OnInit {
     private toastr:ToastrService,
     private userService:UserService,
     private local:LocalService,
-    private auth:AuthService) { }
+    private decodeService:DecodeService
+    
+    ) { }
 
   ngOnInit(): void {
     this.decode()
@@ -40,26 +43,17 @@ export class UserComponent implements OnInit {
     if(this.userUpdateForm.valid){
       
       let updateModel= Object.assign({},this.userUpdateForm.value)
-      
+     
       this.userService.update(updateModel,String(updateModel.password)).subscribe(res=>{
         this.toastr.success("Bilgiler Güncellendi","Success")
         localStorage.removeItem("token")       
         location.reload();        
       },errorRes=>{
-        this.toastr.error(errorRes,"başarısız")
+        this.toastr.error("başarısız")
       })
     }
   }
   decode() {
-    let token = this.local.get("token")
-    let decoded = jwtDecode(token)
-    let userId = Object.values(decoded)[0]
-    //let email=Object.values(decoded)[1]
-    //let name=Object.values(decoded)[2]
-    //let claims=Object.values(decoded)[3]
-    //this.claims=claims
-    //this.name=name
-    this.userId = userId
-
+    this.userId=this.decodeService.getUserId();
   }
 }

@@ -3,21 +3,24 @@
       <svg class="bi bi-patch-exclamation" width="40" height="32"></svg>
       <span class="fs-4"></span>
     </a>
-    
+    <img src="assets/img/123.png" height="180"  class="p-mr-2" >
+    <input style=" background-color: #c6ebda;border-color: rgb(255, 0, 0);" type="text" [(ngModel)]="filterBrandText" class="form-control" id="filterBrandText" 
+  placeholder="Brand Search">
     <select  [ngModel]="brands" (ngModelChange)="setCurrentBrand($event)" class="form-select " aria-label="Default select example"  style="background-color: #accef0; border-radius: 10px;float: right;margin-top: 5px;">
       
-      <option  [value]="brand.id" class="form-select selected"  *ngFor="let brand of brands"  >{{brand.brandName}} </option>
+      <option  [value]="brand.id" class="form-select selected"  *ngFor="let brand of brands |filterBrand:filterBrandText  "  >{{brand.brandName}} </option>
       
     </select>
-    
-    <select  [ngModel]="colors" (ngModelChange)="setCurrentColor($event)" class="form-select " aria-label="Default select example"  style="background-color: #accef0; border-radius: 10px;float: right;margin-top: 5px;">
+    <input style="margin-top: 5px;background-color: #c6ebda;border-color: rgb(255, 0, 0);" type="text" [(ngModel)]="filterColorText" class="form-control" id="filterColorText"
+          placeholder="Color Search">
+    <select  [ngModel]="colors" (ngModelChange)="setCurrentColor($event)" class="form-select " aria-label="Default select example"  style="background-color: #accef0; border-radius: 10px;float: right;margin-top: 5px; ">
       
-      <option  [value]="color.id" class="form-select selected"  *ngFor="let color of colors"  >{{color.colorName}} </option>
+      <option  [value]="color.id" class="form-select selected"  *ngFor="let color of colors |filterColor:filterColorText"  >{{color.colorName}} </option>
       
     </select>
     
      <button  class="btn btn-warning "  (click)="someFilter()" style=" border-radius: 15px; margin-top: 8px;">Filter</button> 
-     <button class="btn  " routerLink="/main" style=" border-radius: 15px; margin-top: 8px;background-color:#4aa87c ;">Clear</button>
+     <button class="btn  " routerLink="/main" style=" border-radius: 15px; margin-top: 8px;background-color:#4aa87c ;margin-bottom: 30px;">Clear</button>
   </div>
 
   
