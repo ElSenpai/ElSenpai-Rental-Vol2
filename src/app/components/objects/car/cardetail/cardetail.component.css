@@ -1,0 +1,14 @@
+.row {
+    --bs-gutter-x: none;
+   --bs-gutter-y: none;
+   
+}
+#cerenback:focus{
+    box-shadow: none;
+    
+    
+}
+#cerenback:hover{
+    color: rgb(187, 44, 44);
+}
+  

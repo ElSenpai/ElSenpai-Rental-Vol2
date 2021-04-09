@@ -1,3 +1,9 @@
 #ceren:focus{
     box-shadow: none;
 }
+
+
+#ceren:hover{
+    color: #a9caeb;
+}
+  

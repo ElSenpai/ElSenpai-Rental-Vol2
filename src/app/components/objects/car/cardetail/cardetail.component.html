@@ -1,18 +1,20 @@
 <div class="row" style="margin-top: 50px;">
-    <div class="col-md-6">
-        <app-carimage></app-carimage>
+    <div class="col-md-6" style="margin-right: 0px;">
+        <app-carimage style="margin-right: 0px;"></app-carimage>
     </div>
-    <div class="col-md-6" >
-        <app-car-update  *ngIf="claims=='admin'" ></app-car-update> 
-        <ul *ngIf="cardto" class="list-group "  >
-            <li class="list-group-item">Brand : {{cardto.brandName }}</li>
-            <li class="list-group-item">Name : {{ cardto.brandModel }}</li>
-            <li class="list-group-item">Color : {{ cardto.colorName }}</li>
-            <li class="list-group-item">Daily Price: {{ cardto.dailyPrice }} ₺ </li>
-            <li class="list-group-item">Findeks: {{ cardto.minFindeks }}</li>
+    <div class="col-md-6" style="margin-top: 37px;background-color: #adb5bd;border-radius: 35px;border-bottom-left-radius: 0px;border-top-left-radius: 0px; margin-left: 0px;" >
+        <div >
+        <ul style="margin-top: 29px;margin-right: 25px;margin-left: 20px; " *ngIf="cardto" class="list-group "  >
+            <li style="background-color: #adb5bd;border: solid;" class="list-group-item">Brand : {{cardto.brandName }}</li>
+            <li style="background-color: #adb5bd;border: solid;border-top: none;" class="list-group-item">Name : {{ cardto.brandModel }}</li>
+            <li style="background-color: #adb5bd;border: solid;border-top: none;" class="list-group-item">Color : {{ cardto.colorName }}</li>
+            <li style="background-color: #adb5bd;border: solid;border-top: none;" class="list-group-item">Daily Price: {{ cardto.dailyPrice }} ₺ </li>
+            <li style="background-color: #adb5bd;border: solid;border-top: none;" class="list-group-item">Findeks: {{ cardto.minFindeks }}</li>
         </ul>
-        <button *ngIf="cardto" style="margin-top: 10px; background-color: rgb(134, 183, 192);" routerLink="/rental/{{cardto.carId}}" class="btn" >Kirala</button> 
-        
+        </div>
+       <div style="margin-top: 5px; margin-left: 20px;"><button id="cerenback" routerLink="/main" type="button" class="btn bi bi-arrow-left-circle-fill" style="float: right; margin-right: 25px; margin-top: 1px; font-size: x-large;"></button> <app-car-update  *ngIf="claims=='admin'" ></app-car-update> </div> 
+       <button *ngIf="cardto" style="margin-top: 10px;margin-left: 20px; background-color: rgb(185, 78, 45);" routerLink="/rental/{{cardto.carId}}" class="btn" >Kirala</button>
+       
     </div>
-    
+   
 </div>
