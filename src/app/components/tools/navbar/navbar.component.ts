@@ -23,8 +23,7 @@ export class NavbarComponent implements OnInit {
   }
  
   authCheck(){
-    return this.authService.isAuthenticated();
-  
+    return this.authService.isAuthenticated(); 
   }
 
   

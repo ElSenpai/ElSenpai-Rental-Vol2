@@ -12,11 +12,11 @@ import { ColorService } from 'src/app/services/color.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  brands:Brand[]=[]
+   filterColorText="";
   filterBrandText="";
-  filterColorText="";
+  brands:Brand[]=[]
   colors:Color[]=[]
-  currentBrand:Brand
+  currentBrand:Brand 
   currentColor:Color
   constructor(private brandService:BrandService,
     private toastr:ToastrService,
@@ -42,9 +42,7 @@ export class SidebarComponent implements OnInit {
    }
    setCurrentColor(color:Color){
     this.currentColor=color;
-    
-    
-    
+ 
    }
 
    getColor(){

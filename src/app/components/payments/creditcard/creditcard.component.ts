@@ -95,8 +95,10 @@ export class CreditcardComponent implements OnInit {
         carModel.cardNumber = this.card.cardNumber;
         carModel.cardPassword = this.card.cardPassword;
         
+        
       }
       if (this.isChecked == true) {
+        this.toastr.info("Kart kaydedildi","Saved")
         this.creditService.payment(carModel).subscribe(data => {
           this.toastr.success("Ödeme Gerçekleşti", "Başarılı")
           this.rentalService.RentAdd(this.rent).subscribe(res => {

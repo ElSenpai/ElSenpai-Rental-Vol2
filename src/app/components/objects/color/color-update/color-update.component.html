@@ -6,25 +6,25 @@
   <!-- Modal -->
   <div class="modal fade" id="colorupdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" style="background-color: #adb5bd;">
         <div class="modal-header" style="background-color: #adb5bd;">
           <h5 class="modal-title" id="exampleModalLabel">Color Update</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+
+          <label >Select</label>
+          <select  (ngModelChange)="setCurrentColor($event)" [ngModel]="colors" name="colors" ngDefaultControl   aria-label="Default select example"  >
+      
+              <option  [value]="color.id"  *ngFor="let color of colors "  >{{color.colorName}} </option>
+              
+            </select> 
           <form [formGroup]="colorUpdateForm">
 
-            <div class="p-field p-col-12 p-md-4">
-                <span class="p-float-label">
-                    <input type="number"  formControlName="id"  pInputText>
-                    <label for="id">Id</label>
-                </span>
-            </div>
-
-            <div class="p-field p-col-12 p-md-4">
+            <div class="p-field p-col-12 p-md-4"><label for="colorName">Name</label>
                 <span class="p-float-label">
                     <input type="text"  formControlName="colorName"  pInputText>
-                    <label for="colorName">Name</label>
+                    
                 </span>
             </div>
 
@@ -34,9 +34,13 @@
     </form>
         </div>
         <div class="modal-footer" style="background-color: #adb5bd;">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Back</button>
+          <button type="button" (click)="update()" data-bs-dismiss="modal" class="btn btn-dark">Update</button>
         </div>
       </div>
     </div>
   </div>
+
+
+  
+   

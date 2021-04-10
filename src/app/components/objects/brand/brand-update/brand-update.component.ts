@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Brand } from 'src/app/models/brand';
 import { BrandService } from 'src/app/services/brand.service';
 
 @Component({
@@ -10,15 +11,17 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class BrandUpdateComponent implements OnInit {
   brandUpdateForm:FormGroup;
-  
+  currentBrand:Brand
+  brands:Brand[]=[]
   constructor(private formBuilder:FormBuilder,private toastrService:ToastrService,private brandService:BrandService) { }
 
   ngOnInit(): void {
     this.createBrandUpdateForm();
-  }
+    this.getBrands()
+  } 
   createBrandUpdateForm(){
     this.brandUpdateForm=this.formBuilder.group({
-      id:["",Validators.required],
+      
      brandName:["",Validators.required]
     })
   }
@@ -26,6 +29,7 @@ export class BrandUpdateComponent implements OnInit {
   update() {
     if (this.brandUpdateForm.valid) {
       let carModel = Object.assign({}, this.brandUpdateForm.value)
+      carModel.id=this.currentBrand
       this.brandService.update(carModel).subscribe(data => {
         this.toastrService.success("Brand güncellendi", "Başarılı")
       }, responseError => {
@@ -39,7 +43,17 @@ export class BrandUpdateComponent implements OnInit {
     } else {
       this.toastrService.error("Form eksik", "Dikkat")
     }
-
   }
+  getBrands(){
+    this.brandService.getBrands().subscribe(res=>{
+      this.brands=res.data
+    })
+  }
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+    
+    
+    
+   }
 
 }
